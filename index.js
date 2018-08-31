@@ -7,6 +7,7 @@ const cors = require('cors')
 
 
 const app = express()
+app.use(express.static('build'))
 app.use(bodyParser.json())
 app.use(cors())
 
@@ -29,7 +30,7 @@ let notes = [
     },
     {
       id: 2,
-      content: 'Selain pystyy suorittamaan vain javascriptiä',
+      content: 'CSS ei myöskään ole ohjelmointikieli',
       date: '2017-12-10T18:39:34.091Z',
       important: false
     },
@@ -61,11 +62,11 @@ app.get('/notes/:id', (request, response) => {
     
 })
 
-app.get('/notes', (req, res) => {
+app.get('/api/notes', (req, res) => {
     res.json(notes)
 })
 
-app.delete('/notes/:id', (request, response) => {
+app.delete('/api/notes/:id', (request, response) => {
   const id = Number(request.params.id)
   notes = notes.filter(note => note.id !== id)
 
@@ -77,7 +78,7 @@ const generateId = () => {
   return maxId +1
 }
 
-app.post('/notes', (request, response) => {
+app.post('/api/notes', (request, response) => {
   const body = request.body
 
   if (body.content === undefined) {
