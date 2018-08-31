@@ -1,0 +1,14 @@
+
+POST http://localhost:3001/notes
+content-type: application/json
+
+{
+    "content": "VS Coden REST client on paras",
+    "important": true,
+    "date": "Wed, 29 Aug 2018 11:23:30 GMT"
+}
+
+
+
+
+
