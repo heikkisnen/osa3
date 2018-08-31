@@ -23,7 +23,7 @@ app.use(logger)
 let notes = [
     {
       id: 1,
-      content: 'HTML on paskaa',
+      content: 'HTML ei ole ohjelmointikieli',
       date: '2017-12-10T17:30:31.098Z',
       important: true
     },
@@ -96,7 +96,7 @@ app.post('/notes', (request, response) => {
 })
 
 const error = (request, response) => {
-  response.status(404).send({error: 'unknown endpoint'})
+  response.status(404).send({error: 'unknown shitpoint'})
 }
 
 app.use(error)
